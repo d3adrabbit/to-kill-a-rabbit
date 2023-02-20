@@ -5,6 +5,7 @@ export interface IBoxProps {
   height?: number;
   className?: string;
   border?: boolean;
+  children?: React.ReactNode;
 }
 
 export default function Box({
@@ -12,6 +13,7 @@ export default function Box({
   height = 1,
   border = true,
   className,
+  children,
 }: IBoxProps) {
   const base = 180;
 
@@ -22,6 +24,8 @@ export default function Box({
       //   width: `${width * base}px`,
       //   height: `${height * base}px`,
       // }}
-    ></div>
+    >
+      {children}
+    </div>
   );
 }
