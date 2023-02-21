@@ -9,16 +9,7 @@ export interface IBoxProps {
   children?: React.ReactNode;
 }
 
-export default function Box({
-  width = 1,
-  height = 1,
-  border = true,
-  style,
-  className,
-  children,
-}: IBoxProps) {
-  const base = 180;
-
+export default function Box({ style, className, children }: IBoxProps) {
   return (
     <div
       className={clsx("border border-black p-1 md:p-3", className)}
