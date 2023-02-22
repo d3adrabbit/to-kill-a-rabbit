@@ -15,11 +15,26 @@ export default function Radar({ style, className, children }: IBoxProps) {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.to(mainRef.current, {
-        scale: 1.5,
-        repeat: -1,
-        duration: 1,
-        opacity: 0,
+      gsap.to("[data-scale]", {
+        keyframes: [
+          {
+            opacity: 0,
+          },
+          {
+            opacity: 0.8,
+            scale: 1.5,
+          },
+          {
+            opacity: 0,
+            scale: 2,
+          },
+        ],
+
+        duration: 2.5,
+        stagger: {
+          each: 0.5,
+          repeat: -1,
+        },
       });
     }, mainRef);
 
@@ -27,14 +42,24 @@ export default function Radar({ style, className, children }: IBoxProps) {
   }, []);
 
   return (
-    <div
-      ref={mainRef}
-      data-scale
-      className={clsx(
-        "rounded-full w-[20px] h-[20px] border-2 border-black",
-        className
-      )}
-      style={style}
-    ></div>
+    <div ref={mainRef} className="flex justify-center items-center">
+      {Array(6)
+        .fill(0)
+        .map((_, index) => {
+          return (
+            <div
+              key={index}
+              data-scale
+              className={clsx(
+                "rounded-full border-2 border-[#095E38] absolute opacity-0",
+                "w-[80px] h-[80px]",
+                "md:w-[100px] md:h-[100px]",
+                "lg:w-[160px] lg:h-[160px]",
+                className
+              )}
+            ></div>
+          );
+        })}
+    </div>
   );
 }
