@@ -11,6 +11,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Octahedron, OrthographicCamera } from "@react-three/drei";
 import { Mesh } from "three";
 import useMediaQuery from "@/hooks/use-match-mediea";
+import Typed, { TypedOptions } from "typed.js";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
@@ -55,6 +56,35 @@ export default function Home() {
     }, mainRef);
 
     return () => ctx.revert();
+  }, []);
+
+  const typedEl = useRef<HTMLSpanElement>(null);
+  const typed = useRef<Typed>();
+
+  useIsomorphicLayoutEffect(() => {
+    const options: TypedOptions = {
+      strings: [
+        `
+        $ My program data bank boots up...<br>
+        $ ■■■■■■■■■ 100%<br>
+        $ It tells me what to do...<br>
+        $ I'm <strong>D3-R4</strong>.<br>
+        $ Now, how can I help you?<br>  
+        $ Waiting...<br>
+       `,
+      ],
+      typeSpeed: 30,
+      showCursor: true,
+      loop: false,
+    };
+
+    if (typedEl.current) {
+      typed.current = new Typed(typedEl.current, options);
+    }
+
+    return () => {
+      typed.current?.destroy();
+    };
   }, []);
 
   return (
@@ -117,7 +147,12 @@ export default function Home() {
                   style={{
                     backgroundImage: "url(/images/rabbit.svg)",
                   }}
-                ></div>
+                >
+                  <span
+                    className="text-xs md:text-sm opacity-60"
+                    ref={typedEl}
+                  ></span>
+                </div>
               </Box>
             </div>
             <div className="row-span-1 grid">
