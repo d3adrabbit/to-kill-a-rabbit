@@ -1,24 +1,16 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-
 import clsx from "clsx";
 import { gsap } from "gsap";
-import { Suspense, useEffect, useLayoutEffect, useRef } from "react";
+import { Suspense, useRef } from "react";
 import { horizontalLoop } from "@/utils/loop";
 import Box from "@/components/box";
 import Radar from "@/components/radar";
 import { useIsomorphicLayoutEffect } from "@/hooks/use-isomorphic-layout-effect";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Float, Octahedron, OrthographicCamera } from "@react-three/drei";
-import {
-  EffectComposer,
-  Outline,
-  Select,
-  Selection,
-} from "@react-three/postprocessing";
-import { BufferGeometry, Material, Mesh } from "three";
-import { BlendFunction, Resizer, KernelSize } from "postprocessing";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Octahedron, OrthographicCamera } from "@react-three/drei";
+import { Mesh } from "three";
+import useMediaQuery from "@/hooks/use-match-mediea";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
@@ -32,10 +24,9 @@ const Animation = () => {
     }
   });
   return (
-    <mesh scale={4} ref={cubeRef}>
+    <mesh ref={cubeRef}>
       <Octahedron>
         <meshStandardMaterial wireframe />
-        {/* <lineBasicMaterial color={0xfff} linewidth={1}></lineBasicMaterial> */}
       </Octahedron>
     </mesh>
   );
@@ -43,6 +34,11 @@ const Animation = () => {
 
 export default function Home() {
   const mainRef = useRef<HTMLDivElement>(null);
+
+  const isTablet = useMediaQuery("(min-width: 768px)");
+  const isDesktop = useMediaQuery("(min-width: 960px)");
+
+  const cubeSize = isDesktop ? 40 : isTablet ? 30 : 20;
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -107,8 +103,8 @@ export default function Home() {
                     return (
                       <div key={index} data-loop-text>
                         <div className="flex space-x-6">
-                          <div>D3adR4bbit</div>
-                          <div>戴 · 拉比特</div>
+                          <div>D3ADR4BBIT</div>
+                          <div>戴拉比特</div>
                         </div>
                       </div>
                     );
@@ -157,15 +153,16 @@ export default function Home() {
             <div className="row-span-2 col-span-2 grid grid-cols-2 grid-rows-2">
               <Box></Box>
               <Box
+                className="h-[80px] md:h-full"
                 style={{
                   padding: 0,
                 }}
               >
-                <Canvas>
+                <Canvas className="">
                   <OrthographicCamera
                     makeDefault
                     position={[0, 0, 15]}
-                    zoom={10}
+                    zoom={cubeSize}
                   />
                   <Suspense fallback={null}>
                     <Animation></Animation>
@@ -198,8 +195,8 @@ export default function Home() {
                 ></div>
               </Box>
             </div>
-            <div className="row-span-2 col-span-2 grid">
-              <Box className=" overflow-hidden">
+            <div className="row-span-2  col-span-2 grid">
+              <Box className="overflow-hidden">
                 <div
                   className="h-full w-full bg-no-repeat bg-contain bg-center relative flex justify-center items-center"
                   style={{
@@ -218,7 +215,7 @@ export default function Home() {
             </div>
           </div>
           <div className="absolute right-0 -bottom-8 md:-bottom-12 leading-3 md:leading-5 text-xs md:text-sm text-right">
-            <div>www.to-kill-a-rabbit.deadrabbit.online</div>
+            <div>to-kill-a-rabbit.deadrabbit.online</div>
             <div>deadrabbbbit@gmail.com</div>
           </div>
 
