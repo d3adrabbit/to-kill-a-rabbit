@@ -13,7 +13,7 @@ export default function Box({ style, className, children }: IBoxProps) {
   return (
     <div
       className={clsx(
-        "border border-[#095E38] p-1 md:p-3 md:border-2",
+        "border border-[#E27881] p-1 md:p-3 md:border-2",
         className
       )}
       style={style}

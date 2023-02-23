@@ -52,7 +52,7 @@ export default function Radar({ style, className, children }: IBoxProps) {
               key={index}
               data-scale
               className={clsx(
-                "rounded-full border border-[#095E38] absolute opacity-0",
+                "rounded-full border border-[#E27881] absolute opacity-0",
                 "w-[80px] h-[80px]",
                 "md:w-[100px] md:h-[100px]",
                 "lg:w-[160px] lg:h-[160px]",
