@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { useIsomorphicLayoutEffect } from "@/hooks/use-isomorphic-layout-effect";
 import { useRef } from "react";
 import { gsap } from "gsap";
+import useMediaQuery from "@/hooks/use-match-mediea";
 
 export interface IBoxProps {
   className?: string;
@@ -51,7 +52,7 @@ export default function Radar({ style, className, children }: IBoxProps) {
               key={index}
               data-scale
               className={clsx(
-                "rounded-full border-2 border-[#095E38] absolute opacity-0",
+                "rounded-full border border-[#095E38] absolute opacity-0",
                 "w-[80px] h-[80px]",
                 "md:w-[100px] md:h-[100px]",
                 "lg:w-[160px] lg:h-[160px]",

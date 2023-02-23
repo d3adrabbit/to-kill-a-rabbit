@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import clsx from "clsx";
 import { gsap } from "gsap";
-import { Suspense, useRef } from "react";
+import { ReactNode, Suspense, useRef } from "react";
 import { horizontalLoop } from "@/utils/loop";
 import Box from "@/components/box";
 import Radar from "@/components/radar";
@@ -33,6 +33,35 @@ const Animation = () => {
   );
 };
 
+const Circle = ({
+  background,
+  className,
+  children,
+}: {
+  background?: string;
+  className?: string;
+  children?: ReactNode;
+}) => {
+  return (
+    <div
+      className={clsx(
+        "absolute bg-no-repeat bg-contain bg-center",
+        "h-[120px] w-[120px] top-[340px] left-[100px] p-1",
+        "md:h-[140px] md:w-[140px] md:top-[20px] md:left-[455px]",
+        "lg:h-[180px] lg:w-[180px] lg:top-[30px] lg:left-[645px]",
+        "xl:h-[277px] xl:w-[277px] xl:top-[20px] xl:left-[805px]",
+        className
+      )}
+      style={{
+        background: `url(${background})`,
+        backgroundSize: "100%",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
 export default function Home() {
   const mainRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +76,7 @@ export default function Home() {
         repeat: -1,
       });
 
-      gsap.to("[data-rotate]", {
+      gsap.to(".rotate", {
         rotate: -360,
         repeat: -1,
         duration: 5,
@@ -254,8 +283,8 @@ export default function Home() {
             <div>deadrabbbbit@gmail.com</div>
           </div>
 
-          <div className="absolute">
-            <div
+          <div className="abresolute">
+            {/* <div
               data-rotate
               className={clsx(
                 "absolute bg-no-repeat bg-contain bg-center",
@@ -268,17 +297,14 @@ export default function Home() {
                 background: "url(/images/round-text.svg)",
                 backgroundSize: "100%",
               }}
-            ></div>
+            ></div> */}
 
-            <div
-              className={clsx(
-                "absolute bg-no-repeat bg-contain bg-center flex justify-center items-center",
-                "h-[120px] w-[120px] top-[340px] left-[100px] p-1",
-                "md:h-[140px] md:w-[140px] md:top-[20px] md:left-[455px] md:p-2",
-                "lg:h-[180px] lg:w-[180px] lg:top-[30px] lg:left-[645px] lg:p-3",
-                "xl:h-[277px] xl:w-[277px] xl:top-[20px] xl:left-[805px]"
-              )}
-            >
+            <Circle
+              background="/images/round-text.svg"
+              className="rotate"
+            ></Circle>
+
+            <Circle className="flex justify-center items-center md:p-2 lg:p-3">
               <div
                 className="w-full h-full"
                 style={{
@@ -286,7 +312,7 @@ export default function Home() {
                   backgroundSize: "100%",
                 }}
               ></div>
-            </div>
+            </Circle>
           </div>
         </div>
       </main>
