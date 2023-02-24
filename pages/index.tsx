@@ -125,7 +125,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className="flex justify-center items-center h-screen h-[100dvh] min-w-[320px] bg-[#EEECEE] text-[#CD4D5B] select-none"
+        className="flex justify-center items-center  h-[100dvh] min-w-[320px] bg-[#EEECEE] text-[#CD4D5B] select-none"
         style={inter.style}
       >
         <div
