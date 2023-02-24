@@ -27,7 +27,7 @@ const Animation = () => {
   return (
     <mesh ref={cubeRef}>
       <Octahedron>
-        <meshBasicMaterial wireframe color={0xe27881} />
+        <meshBasicMaterial wireframe color={0xcd4d5b} />
       </Octahedron>
     </mesh>
   );
@@ -125,7 +125,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className="flex justify-center items-center h-screen min-w-[320px] bg-[#EEECEE] text-[#CD4D5B] select-none"
+        className="flex justify-center items-center h-screen h-[100dvh] min-w-[320px] bg-[#EEECEE] text-[#CD4D5B] select-none"
         style={inter.style}
       >
         <div
@@ -278,7 +278,7 @@ export default function Home() {
               </Box>
             </div>
           </div>
-          <div className="absolute right-0 text-xs leading-3 text-right -bottom-8 md:-bottom-12 md:leading-5 md:text-sm">
+          <div className="absolute right-0 hidden text-xs leading-3 text-right md:block -bottom-8 md:-bottom-12 md:leading-5 md:text-sm">
             <div>to-kill-a-rabbit.deadrabbit.online</div>
             <div>deadrabbbbit@gmail.com</div>
           </div>
