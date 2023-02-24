@@ -157,13 +157,25 @@ export default function Home() {
                 ></div>
               </Box>
               <Box className="col-span-4 border-t-0 ">
-                <div className="flex items-center h-full space-x-6 overflow-hidden text-xl font-bold lg:text-4xl whitespace-nowrap">
-                  {new Array(6).fill(0).map((_, index) => {
+                <div className="flex items-center h-full overflow-hidden text-xl font-bold lg:text-4xl whitespace-nowrap">
+                  {new Array(3).fill(0).map((_, index) => {
                     return (
                       <div key={index} data-loop-text>
-                        <div className="flex space-x-6">
-                          <div>D3ADR4BBIT</div>
-                          <div>戴拉比特</div>
+                        <div className="flex items-center">
+                          <div className="mx-3">D3ADR4BBIT</div>
+                          <div
+                            className="w-5 h-5 mx-3 bg-center bg-no-repeat bg-contain lg:h-8 lg:w-8"
+                            style={{
+                              backgroundImage: "url(/images/danger.svg)",
+                            }}
+                          ></div>
+                          <div className="mx-3">戴拉比特</div>
+                          <div
+                            className="w-5 h-5 mx-3 bg-center bg-no-repeat bg-contain lg:h-8 lg:w-8"
+                            style={{
+                              backgroundImage: "url(/images/danger.svg)",
+                            }}
+                          ></div>
                         </div>
                       </div>
                     );
@@ -284,21 +296,6 @@ export default function Home() {
           </div>
 
           <div className="abresolute">
-            {/* <div
-              data-rotate
-              className={clsx(
-                "absolute bg-no-repeat bg-contain bg-center",
-                "h-[120px] w-[120px] top-[340px] left-[100px] p-1",
-                "md:h-[140px] md:w-[140px] md:top-[20px] md:left-[455px]",
-                "lg:h-[180px] lg:w-[180px] lg:top-[30px] lg:left-[645px]",
-                "xl:h-[277px] xl:w-[277px] xl:top-[20px] xl:left-[805px]"
-              )}
-              style={{
-                background: "url(/images/round-text.svg)",
-                backgroundSize: "100%",
-              }}
-            ></div> */}
-
             <Circle
               background="/images/round-text.svg"
               className="rotate"
