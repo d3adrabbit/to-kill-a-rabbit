@@ -125,16 +125,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className="flex justify-center items-center h-screen min-w-[320px] bg-[#F1E4A5] text-[#E27881] select-none"
+        className="flex justify-center items-center h-screen min-w-[320px] bg-[#EEECEE] text-[#CD4D5B] select-none"
         style={inter.style}
       >
         <div
           ref={mainRef}
-          className="w-[320px] h-[640px]  md:w-[700px] md:h-[350px] lg:w-[980px] lg:h-[490px] xl:w-[1260px] xl:h-[630px] border md:border-2 relative border-[#E27881] flex flex-col md:flex-row"
+          className="w-[320px] h-[640px]  md:w-[700px] md:h-[350px] lg:w-[980px] lg:h-[490px] xl:w-[1260px] xl:h-[630px] border md:border-2 relative border-[#CD4D5B] flex flex-col md:flex-row"
         >
           <div className="grid flex-1 grid-flow-row grid-rows-4">
             <div className="grid grid-flow-col grid-cols-4 grid-rows-6 row-span-3">
-              <Box className="row-span-2 border-r-2 text-xl md:text-3xl lg:text-4xl xl:text-5xl text-[#F1E4A5] bg-[#E27881] font-bold flex flex-col justify-center items-center">
+              <Box className="row-span-2 border-r-2 text-xl md:text-3xl lg:text-4xl xl:text-5xl text-[#EEECEE] bg-[#CD4D5B] font-bold flex flex-col justify-center items-center">
                 <div>
                   <div>噪聲</div>
                   <div>時代</div>
@@ -204,7 +204,7 @@ export default function Home() {
           </div>
           <div className="grid flex-1 grid-cols-4 grid-rows-4">
             <div className="relative grid grid-cols-2 col-span-2 grid-rows-2 row-span-2">
-              <Box className="row-span-2 bg-[#E27881]">
+              <Box className="row-span-2 bg-[#CD4D5B]">
                 <div
                   className="w-full h-full bg-center bg-no-repeat bg-contain"
                   style={{
@@ -236,7 +236,7 @@ export default function Home() {
               <Box className="col-span-2"></Box>
             </div>
             <div className="grid grid-cols-2 col-span-2 grid-rows-2 row-span-2">
-              <Box className="text-xl md:text-3xl lg:text-4xl  xl:text-5xl text-[#E27881] font-bold flex flex-col justify-center items-center">
+              <Box className="text-xl md:text-3xl lg:text-4xl  xl:text-5xl text-[#CD4D5B] font-bold flex flex-col justify-center items-center">
                 <div>
                   <div>重塑</div>
                   <div>未来</div>
@@ -250,7 +250,7 @@ export default function Home() {
                   }}
                 ></div>
               </Box>
-              <Box className="col-span-2 bg-[#E27881]">
+              <Box className="col-span-2 bg-[#CD4D5B]">
                 <div
                   className="w-full h-full bg-no-repeat bg-contain"
                   style={{
